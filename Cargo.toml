@@ -1,0 +1,29 @@
+[package]
+name = "focuscompass"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.74"
+license = "MIT"
+description = "Pomodoro oturumu, görev bagimliligi ve gunluk kapasite planlamasini birlikte sunan cevrimdisi odak planlayici."
+repository = "https://github.com/SyntaxOrigin/focuscompass"
+readme = "README.md"
+keywords = ["cli", "pomodoro", "productivity", "planning", "focus"]
+categories = ["command-line-utilities"]
+
+[dependencies]
+# serde: gorevler.json semasi, oturumlar.jsonl satirlari ve haftalik rapor yapisinin
+#       turetilmis veri yuzleri bu crate'in Serialize/Deserialize turetiyle yazilir.
+serde = { version = "1", features = ["derive"] }
+# serde_json: surumlu JSON veri dosyalari, satir satir oturum gunlugu ve rapor JSON'u
+#       yalnizca bu crate ile ayristirilir ve uretilir.
+serde_json = "1"
+# clap: add/list/start/stop/plan/report/cycle gibi alt komutlu komut satiri
+#       arayuzu bu crate'in derive ozelligiyle tanimlanir.
+clap = { version = "4", features = ["derive"] }
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+codegen-units = 1
+panic = "abort"
+strip = "debuginfo"

@@ -1,0 +1,13 @@
+/target/
+.env
+*.log
+*.tmp
+
+# Yerel calisma verisi (gorevler.json, oturumlar.jsonl, raporlar) repoya girmez.
+veri/
+config.json
+
+# Editor ve arac zinciri kalintilari
+.idea/
+.vscode/
+*.swp
